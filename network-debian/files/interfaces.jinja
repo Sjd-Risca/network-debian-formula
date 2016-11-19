@@ -19,15 +19,15 @@ auto {{ interface.name }}
 
 iface {{ interface.name }} {{ interface.type }} {{ interface.proto }}
 {%- if interface.address is defined %}
-  address {{ interface.address }}
-  netmask {{ interface.netmask }}
-  up /etc/network/routes
+	address {{ interface.address }}
+	netmask {{ interface.netmask }}
+	up /etc/network/routes
 {%- endif %}  
 
 {%- if interface.options is defined %}
 {%-   for option in interface.options %}
-  {{ option }}
-{%- endfor %}
+	{{ option }}
+{%-   endfor %}
 {%- endif %}
 
 {%- endfor %}
